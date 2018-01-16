@@ -111,10 +111,9 @@ public class CalDay {
 	
 	/** Sets appts */
 	private void setAppts(LinkedList<Appt> appts) {
+//		if(appts!=null&&appts.size()==0)
+//			this.appts = appts;
 		if(appts!=null)
-				this.appts = appts;
-		
-		if(appts!=null&&appts.size()==0)
 			this.appts = appts;
 	}
 	
@@ -169,7 +168,7 @@ public class CalDay {
 	public String toString() {
 	     StringBuilder sb = new StringBuilder();
 	
-		if (isValid()) {
+		if (!isValid()) {
 			String todayDate = (getMonth()) + "/" + getDay() + "/" + getYear();
 			sb.append("\t --- " + todayDate + " --- \n");
 			sb.append(" --- -------- Appointments ------------ --- \n");
@@ -180,7 +179,6 @@ public class CalDay {
 		         sb.append(element + " ");
 		      }
 		  
-//			sb.append(this.appts);
 			sb.append("\n");
 		}
        	 return sb.toString();
