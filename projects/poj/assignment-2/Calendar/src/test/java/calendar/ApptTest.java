@@ -164,11 +164,11 @@ public class ApptTest {
 	public void test06()  throws Throwable  {
 		int startHour = 06;
 		int startMinute = 16;
-		int startDay = 31;
+		int startDay = 06;
 		int startMonth = 06;
 		int startYear = 2016;
-		String title = "";
-		String description = "";
+		String title = "Text";
+		String description = "Text";
 
 		//Construct a new Appointment object with the initial data
 		Appt appt = new Appt(startHour,
@@ -183,11 +183,11 @@ public class ApptTest {
 		assertTrue(appt.getValid());
 		assertEquals(06, appt.getStartHour());
 		assertEquals(16, appt.getStartMinute());
-		assertEquals(31, appt.getStartDay());
+		assertEquals(06, appt.getStartDay());
 		assertEquals(06, appt.getStartMonth());
 		assertEquals(2016, appt.getStartYear());
-		assertEquals("", appt.getTitle());
-		assertEquals("", appt.getDescription());
+		assertEquals("Text", appt.getTitle());
+		assertEquals("Text", appt.getDescription());
 	}
 
 	@Test
@@ -254,7 +254,7 @@ public class ApptTest {
 	public void test09()  throws Throwable  {
 		int startHour = 12;
 		int startMinute = 15;
-		int startDay = 30;
+		int startDay = 28;
 		int startMonth = 02;
 		int startYear = 2012;
 		String title = "Car";
@@ -273,7 +273,7 @@ public class ApptTest {
 		assertTrue(appt.getValid());
 		assertEquals(12, appt.getStartHour());
 		assertEquals(15, appt.getStartMinute());
-		assertEquals(30, appt.getStartDay());
+		assertEquals(28, appt.getStartDay());
 		assertEquals(02, appt.getStartMonth());
 		assertEquals(2012, appt.getStartYear());
 		assertEquals("Car", appt.getTitle());
