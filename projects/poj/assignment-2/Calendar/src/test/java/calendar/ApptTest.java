@@ -162,11 +162,11 @@ public class ApptTest {
 
 	@Test
 	public void test06()  throws Throwable  {
-		int startHour = 06;
-		int startMinute = 16;
-		int startDay = 06;
-		int startMonth = 06;
-		int startYear = 2016;
+		int startHour = -06;
+		int startMinute = -16;
+		int startDay = -06;
+		int startMonth = -06;
+		int startYear = -2016;
 		String title = "Text";
 		String description = "Text";
 
@@ -181,11 +181,11 @@ public class ApptTest {
 
 		// assertions
 		assertTrue(appt.getValid());
-		assertEquals(06, appt.getStartHour());
-		assertEquals(16, appt.getStartMinute());
-		assertEquals(06, appt.getStartDay());
-		assertEquals(06, appt.getStartMonth());
-		assertEquals(2016, appt.getStartYear());
+		assertEquals(-06, appt.getStartHour());
+		assertEquals(-16, appt.getStartMinute());
+		assertEquals(-06, appt.getStartDay());
+		assertEquals(-06, appt.getStartMonth());
+		assertEquals(-2016, appt.getStartYear());
 		assertEquals("Text", appt.getTitle());
 		assertEquals("Text", appt.getDescription());
 	}
@@ -252,13 +252,13 @@ public class ApptTest {
 
 	@Test
 	public void test09()  throws Throwable  {
-		int startHour = 12;
-		int startMinute = 15;
-		int startDay = 28;
-		int startMonth = 02;
-		int startYear = 2012;
-		String title = "Car";
-		String description = "Fix car";
+		int startHour = 0;
+		int startMinute = 0;
+		int startDay = 0;
+		int startMonth = 0;
+		int startYear = 0;
+		String title = null;
+		String description = null;
 
 		//Construct a new Appointment object with the initial data
 		Appt appt = new Appt(startHour,
@@ -271,13 +271,13 @@ public class ApptTest {
 
 		// assertions
 		assertTrue(appt.getValid());
-		assertEquals(12, appt.getStartHour());
-		assertEquals(15, appt.getStartMinute());
-		assertEquals(28, appt.getStartDay());
-		assertEquals(02, appt.getStartMonth());
-		assertEquals(2012, appt.getStartYear());
-		assertEquals("Car", appt.getTitle());
-		assertEquals("Fix car", appt.getDescription());
+		assertEquals(0, appt.getStartHour());
+		assertEquals(0, appt.getStartMinute());
+		assertEquals(0, appt.getStartDay());
+		assertEquals(0, appt.getStartMonth());
+		assertEquals(0, appt.getStartYear());
+		assertEquals(null, appt.getTitle());
+		assertEquals(null, appt.getDescription());
 	}
 
 	@Test
