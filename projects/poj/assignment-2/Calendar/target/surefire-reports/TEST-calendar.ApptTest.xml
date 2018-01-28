@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="calendar.ApptTest" time="0.005" errors="2" skipped="0">
+<testsuite tests="10" failures="0" name="calendar.ApptTest" time="0.013" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
@@ -66,12 +66,12 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="calendar.ApptTest" name="test01" time="0.002"/>
-  <testcase classname="calendar.ApptTest" name="test02" time="0"/>
+  <testcase classname="calendar.ApptTest" name="test01" time="0.001"/>
+  <testcase classname="calendar.ApptTest" name="test02" time="0.001"/>
   <testcase classname="calendar.ApptTest" name="test03" time="0.001"/>
   <testcase classname="calendar.ApptTest" name="test04" time="0"/>
-  <testcase classname="calendar.ApptTest" name="test05" time="0"/>
-  <testcase classname="calendar.ApptTest" name="test06" time="0.001">
+  <testcase classname="calendar.ApptTest" name="test05" time="0.002"/>
+  <testcase classname="calendar.ApptTest" name="test06" time="0.002">
     <error message="-7" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -7
 	at calendar.CalendarUtil.NumDaysInMonth(CalendarUtil.java:30)
 	at calendar.Appt.isValid(Appt.java:113)
@@ -108,9 +108,9 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="calendar.ApptTest" name="test07" time="0"/>
+  <testcase classname="calendar.ApptTest" name="test07" time="0.003"/>
   <testcase classname="calendar.ApptTest" name="test08" time="0"/>
-  <testcase classname="calendar.ApptTest" name="test09" time="0.001">
+  <testcase classname="calendar.ApptTest" name="test09" time="0.003">
     <error message="-1" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -1
 	at calendar.CalendarUtil.NumDaysInMonth(CalendarUtil.java:30)
 	at calendar.Appt.isValid(Appt.java:113)

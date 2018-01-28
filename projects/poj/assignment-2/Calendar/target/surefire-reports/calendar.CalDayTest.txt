@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: calendar.CalDayTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.451 sec <<< FAILURE!
-test01(calendar.CalDayTest)  Time elapsed: 0.441 sec  <<< ERROR!
+Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.005 sec <<< FAILURE!
+test01(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at calendar.CalDay.toString(CalDay.java:173)
 	at calendar.CalDayTest.test01(CalDayTest.java:44)
@@ -70,7 +70,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test03(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test03(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: -1
 	at calendar.CalendarUtil.NumDaysInMonth(CalendarUtil.java:30)
 	at calendar.Appt.isValid(Appt.java:113)
@@ -106,7 +106,7 @@ java.lang.ArrayIndexOutOfBoundsException: -1
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test04(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test04(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at calendar.CalDay.toString(CalDay.java:173)
 	at calendar.CalDayTest.test04(CalDayTest.java:148)
@@ -176,7 +176,7 @@ java.lang.ArrayIndexOutOfBoundsException: 99
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test06(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test06(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at calendar.CalDay.toString(CalDay.java:173)
 	at calendar.CalDayTest.test06(CalDayTest.java:218)
@@ -210,7 +210,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test07(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test07(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: -2
 	at calendar.CalendarUtil.NumDaysInMonth(CalendarUtil.java:30)
 	at calendar.Appt.isValid(Appt.java:113)
@@ -246,7 +246,7 @@ java.lang.ArrayIndexOutOfBoundsException: -2
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test08(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test08(calendar.CalDayTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at calendar.CalDay.toString(CalDay.java:173)
 	at calendar.CalDayTest.test08(CalDayTest.java:288)
@@ -280,7 +280,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test09(calendar.CalDayTest)  Time elapsed: 0.001 sec  <<< ERROR!
+test09(calendar.CalDayTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: -1
 	at calendar.CalendarUtil.NumDaysInMonth(CalendarUtil.java:30)
 	at calendar.Appt.isValid(Appt.java:113)
