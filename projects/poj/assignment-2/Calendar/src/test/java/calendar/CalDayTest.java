@@ -5,6 +5,8 @@ package calendar;
  */
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 
 import org.junit.Test;
@@ -18,348 +20,84 @@ public class CalDayTest {
 
 	 	GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
 
-	 	CalDay calDay = new CalDay();
-
-	 	int startHour = 01;
-	 	int startMinute = 01;
-	 	int startDay = 01;
-	 	int startMonth = 01;
-	 	int startYear = 2001;
-	 	String title = "String";
-	 	String description = "Description";
-
-	 	// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
+	 	CalDay calDay = new CalDay(gregorianCalendar);
 
 	 	// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
+	 	assertNotNull(calDay.toString());
+	 	assertTrue(calDay.isValid());
+
+		 Appt appt = new Appt(05, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
+
+		 appt.setStartDay(-1);
+
+		calDay.addAppt(appt);
+
+		// Assertions
+		assertNotNull(calDay.getSizeAppts());
+		assertEquals(11, calDay.getDay());
+		assertEquals(11, calDay.getMonth());
+		assertEquals(2011, calDay.getYear());
 
 	 }
 
 	@Test
-	public void test02()  throws Throwable  {
+	public void test02() throws Throwable  {
+		int date, month, year;
 
 		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
 
-		CalDay calDay = new CalDay();
+		CalDay calDay = new CalDay(gregorianCalendar);
+		CalDay calDay2 = new CalDay();
 
-		int startHour = 02;
-		int startMinute = 02;
-		int startDay = 02;
-		int startMonth = 02;
-		int startYear = 2020;
-		String title = "String";
-		String description = "Description";
+		date = calDay.getDay();
+		month = calDay.getMonth() + 1;
+		year = calDay.getYear();
 
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
+
+		// Set and create appointments
+		Appt appt = new Appt(05, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
+		Appt appt2 = new Appt(23, 40, 25, 04, 2018, "Birthday Party", "This is my birthday party.");
+
 		calDay.addAppt(appt);
+		assertEquals(1, calDay.getSizeAppts());
 
-		// Assertions
+		calDay.addAppt(appt2);
+		assertEquals(2, calDay.getSizeAppts());
+		assertNull(calDay2.iterator());
+
+		// Returns a string representation of the date in the proper format
+		StringBuilder sb = new StringBuilder();
+
+		String todayDate = date + "/" + month + "/" + year;
+		sb.append("\t --- " + todayDate + " --- \n");
+		sb.append(" --- -------- Appointments ------------ --- \n");
+		Iterator<Appt> itr = calDay.appts.iterator();
+		while(itr.hasNext()) {
+			Object element = itr.next();
+
+			sb.append(element + " ");
+		}
+
+		sb.append("\n");
+
 		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
+		assertNotEquals(sb.toString(), calDay.toString());
 
 	}
 
 	@Test
-	public void test03()  throws Throwable  {
-
+	public void test03() throws Throwable {
 		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
 
-		CalDay calDay = new CalDay();
+		CalDay calDay = new CalDay(gregorianCalendar);
 
-		int startHour = 0;
-		int startMinute = 0;
-		int startDay = 0;
-		int startMonth = 0;
-		int startYear = 0;
-		String title = "null";
-		String description = "null";
+		Appt appt = new Appt(01, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
+		Appt appt2 = new Appt(03, 20, 18, 04, 2018, "Birthday Party", "This is my birthday party.");
 
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
 		calDay.addAppt(appt);
+		calDay.addAppt(appt2);
 
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
+		// Assertion
+		assertEquals(appt, calDay.getAppts().get(0));
 	}
-
-	@Test
-	public void test04()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 23;
-		int startMinute = 59;
-		int startDay = 31;
-		int startMonth = 12;
-		int startYear = 2015;
-		String title = "String";
-		String description = "Description";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test05()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 100;
-		int startMinute = 100;
-		int startDay = 100;
-		int startMonth = 100;
-		int startYear = 3000;
-		String title = "asdfghjkl;";
-		String description = "qwertyuiopasdfghjklzxcvbnm";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test06()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2000, 10, 10);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 10;
-		int startMinute = 10;
-		int startDay = 10;
-		int startMonth = 10;
-		int startYear = 2010;
-		String title = "asdfghjkl;";
-		String description = "qwertyuiopasdfghjklzxcvbnm";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test07()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = -1;
-		int startMinute = -1;
-		int startDay = -1;
-		int startMonth = -1;
-		int startYear = -2000;
-		String title = null;
-		String description = null;
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test08()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 14;
-		int startMinute = 30;
-		int startDay = 03;
-		int startMonth = 05;
-		int startYear = 2018;
-		String title = "Test title";
-		String description = "Test description";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test09()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 2;
-		int startMinute = 10;
-		int startDay = 01;
-		int startMonth = 0;
-		int startYear = 2000;
-		String title = "asdfghjkl;";
-		String description = "qwertyuiopasdfghjklzxcvbnm";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-
-	@Test
-	public void test10()  throws Throwable  {
-
-		GregorianCalendar gregorianCalendar = new GregorianCalendar(2011, 11, 11);
-
-		CalDay calDay = new CalDay();
-
-		int startHour = 24;
-		int startMinute = 60;
-		int startDay = 31;
-		int startMonth = 02;
-		int startYear = 2018;
-		String title = " ";
-		String description = " ";
-
-		// Construct a new Appt object with the data
-		Appt appt = new Appt(startHour,
-				startMinute,
-				startDay,
-				startMonth,
-				startYear,
-				title,
-				description);
-		appt.setStartDay(-1);
-		calDay.addAppt(appt);
-
-
-		// Assertions
-		assertNotNull(calDay.toString());
-		assertTrue(calDay.isValid());
-		assertNotNull(calDay.iterator());
-		assertNotNull(calDay.toString());
-
-	}
-//add more unit tests as you needed	
 }

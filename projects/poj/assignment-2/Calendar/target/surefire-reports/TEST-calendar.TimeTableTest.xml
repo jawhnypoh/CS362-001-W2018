@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="calendar.TimeTableTest" time="0.425" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="calendar.TimeTableTest" time="0.424" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
@@ -66,13 +66,16 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="calendar.TimeTableTest" name="test01" time="0.425">
-    <failure type="java.lang.AssertionError">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertNotNull(Assert.java:712)
-	at org.junit.Assert.assertNotNull(Assert.java:722)
-	at calendar.TimeTableTest.test01(TimeTableTest.java:48)
+  <testcase classname="calendar.TimeTableTest" name="test01" time="0.4"/>
+  <testcase classname="calendar.TimeTableTest" name="test02" time="0"/>
+  <testcase classname="calendar.TimeTableTest" name="test03" time="0.002"/>
+  <testcase classname="calendar.TimeTableTest" name="test04" time="0.001"/>
+  <testcase classname="calendar.TimeTableTest" name="test05" time="0.002"/>
+  <testcase classname="calendar.TimeTableTest" name="test06" time="0.018">
+    <error message="Index: 0, Size: 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:555)
+	at java.util.LinkedList.get(LinkedList.java:476)
+	at calendar.TimeTableTest.test06(TimeTableTest.java:195)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -102,7 +105,7 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</failure>
+</error>
   </testcase>
-  <testcase classname="calendar.TimeTableTest" name="test02" time="0"/>
+  <testcase classname="calendar.TimeTableTest" name="test07" time="0.001"/>
 </testsuite>

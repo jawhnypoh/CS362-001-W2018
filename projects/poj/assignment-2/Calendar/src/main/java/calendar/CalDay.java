@@ -166,7 +166,7 @@ public class CalDay {
 	public String toString() {
 	     StringBuilder sb = new StringBuilder();
 	
-		if (!isValid()) {
+		if (isValid()) {
 			String todayDate = (getMonth()) + "/" + getDay() + "/" + getYear();
 			sb.append("\t --- " + todayDate + " --- \n");
 			sb.append(" --- -------- Appointments ------------ --- \n");

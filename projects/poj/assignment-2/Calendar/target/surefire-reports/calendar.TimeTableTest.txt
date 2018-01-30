@@ -1,14 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: calendar.TimeTableTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.507 sec <<< FAILURE!
-test01(calendar.TimeTableTest)  Time elapsed: 0.425 sec  <<< FAILURE!
-java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertNotNull(Assert.java:712)
-	at org.junit.Assert.assertNotNull(Assert.java:722)
-	at calendar.TimeTableTest.test01(TimeTableTest.java:48)
+Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.492 sec <<< FAILURE!
+test06(calendar.TimeTableTest)  Time elapsed: 0.018 sec  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:555)
+	at java.util.LinkedList.get(LinkedList.java:476)
+	at calendar.TimeTableTest.test06(TimeTableTest.java:195)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

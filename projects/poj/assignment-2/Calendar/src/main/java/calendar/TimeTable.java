@@ -33,11 +33,12 @@ public class TimeTable {
 		     //Create a linked list of calendar days <CalDay> to return
 	        LinkedList<CalDay> calDays = new LinkedList<CalDay>();
 	     
-
+			boolean outOfRange =  false;
 	        
 	        //Make sure that the first day is before the last day
 	        if (!firstDay.before(lastDay)) {
-	        	throw new DateOutOfRangeException ("Second date specified is not  before the first date specified.");
+				outOfRange = true;
+				throw new DateOutOfRangeException ("Second date specified is not  before the first date specified.");
 	        }
 	        
 	        
