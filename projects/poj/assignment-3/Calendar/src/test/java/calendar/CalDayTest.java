@@ -6,6 +6,7 @@ package calendar;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class CalDayTest {
 		 String title="Birthday Party";
 		 String description="This is my birthday party.";
 		 //Construct a new Appointment object with the initial data
-		 Appt appt = new Appt(21, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
+		 Appt appt = new Appt(21, 30, 15, 01, 2018, null, null);
 
 		 int startHour2=11;
 		 int startMinute2=50;
@@ -45,13 +46,19 @@ public class CalDayTest {
 		 String title2="Birthday Party";
 		 String description2="This is my birthday party.";
 		 //Construct a new Appointment object with the initial data
-		 Appt appt2 = new Appt(11, 50, 10, 04, 2018, "Birthday Party", "This is my birthday party.");
+		 Appt appt2 = new Appt(11, 50, 10, 04, 2018, null, null);
+
+		 assertTrue(today.getAppts().isEmpty());
 
 		 // Add an appointment
 		 today.addAppt(appt);
 		 today.addAppt(appt2);
 		 today.iterator();
+		 assertFalse(today.getAppts().isEmpty());
 		 assertEquals(2, today.getSizeAppts());
+		 assertNotNull(today.getAppts().toString());
+		 assertNotNull(today.iterator());
+		 assertNotEquals(0, today.getSizeAppts());
 
 		 // Create a temporary day to test getAppts()
 		 int tempDay = 02;
@@ -92,7 +99,7 @@ public class CalDayTest {
 		assertNotNull(calDay.toString());
 		assertTrue(calDay.isValid());
 
-		Appt appt = new Appt(05, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
+		Appt appt = new Appt(05, 30, 15, 01, 2018, null, null);
 
 		appt.setStartDay(-1);
 
@@ -121,8 +128,8 @@ public class CalDayTest {
 
 
 		// Set and create appointments
-		Appt appt = new Appt(05, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
-		Appt appt2 = new Appt(23, 40, 25, 04, 2018, "Birthday Party", "This is my birthday party.");
+		Appt appt = new Appt(05, 30, 15, 01, 2018, null, null);
+		Appt appt2 = new Appt(23, 40, 25, 04, 2018, null, null);
 
 		calDay.addAppt(appt);
 		assertEquals(1, calDay.getSizeAppts());
@@ -157,14 +164,42 @@ public class CalDayTest {
 
 		CalDay calDay = new CalDay(gregorianCalendar);
 
-		Appt appt = new Appt(01, 30, 15, 01, 2018, "Birthday Party", "This is my birthday party.");
-		Appt appt2 = new Appt(03, 20, 18, 04, 2018, "Birthday Party", "This is my birthday party.");
+		assertEquals(11, calDay.getDay());
+		assertEquals(11, calDay.getMonth());
+		assertEquals(2011, calDay.getYear());
+
+		Appt appt = new Appt(01, 30, 15, 01, 2018, null, null);
 
 		calDay.addAppt(appt);
-		calDay.addAppt(appt2);
+		appt.setStartHour(-1);
+		assertEquals(-1, calDay.getAppts().get(0).getStartHour());
+		calDay.addAppt(appt);
 
-		// Assertion
-		assertEquals(appt, calDay.getAppts().get(0));
+		Appt appt2 = new Appt(03, 20, 18, 04, 2018, null, null);
+
+		calDay.addAppt(appt2);
+		assertEquals(3, calDay.getAppts().get(1).getStartHour());
+
+		Appt appt3 = new Appt(03, 20, 18, 04, 2018, null, null);
+
+		calDay.addAppt(appt3);
+		appt3.setStartHour(1);
+		assertEquals(1, calDay.getAppts().get(2).getStartHour());
+		calDay.addAppt(appt3);
+
+		Appt appt4 = new Appt(05, 20, 18, 04, 2018, null, null);
+		calDay.addAppt(appt4);
+
+		assertEquals(1, calDay.getAppts().get(3).getStartHour());
+
+	}
+
+	@Test
+	public void test05() throws Throwable {
+	 	CalDay calDay = new CalDay();
+	 	assertFalse(calDay.isValid());
+		assertNull(calDay.iterator());
+		assertEquals("", calDay.toString());
 	}
 //add more unit tests as you needed	
 }
