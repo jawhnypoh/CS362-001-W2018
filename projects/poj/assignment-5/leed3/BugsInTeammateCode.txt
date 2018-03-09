@@ -1,0 +1,1 @@
+The following are bugs that I found in Daniel's code:
