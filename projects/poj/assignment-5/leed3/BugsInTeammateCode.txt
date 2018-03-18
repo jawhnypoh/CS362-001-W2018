@@ -1,1 +1,7 @@
 The following are bugs that I found in Daniel's code:
+
+1. isValid():
+    Conditional for hours in a day is 32 instead of 23, so invalid range
+
+2. isLeapYear():
+    Bug where "/" should be "%", so invalid results 
