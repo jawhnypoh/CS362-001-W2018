@@ -2,6 +2,7 @@
 package finalprojectB;
 
 import junit.framework.TestCase;
+import java.util.*;
 
 //You can use this as a skeleton for your 3 different test approach
 //It is an optional to use this file, you can generate your own test file(s) to test the target function!
@@ -18,8 +19,8 @@ public class UrlValidatorTest extends TestCase {
       super(testName);
    }
 
-   
-   
+
+
    public void testManualTest()
    {
       //You can use this function to implement your manual testing
@@ -32,10 +33,10 @@ public class UrlValidatorTest extends TestCase {
       assertTrue(urlVal.isValid("ftp://go.com:0/test1/file?action=view"));
       assertTrue(urlVal.isValid("http://255.com/test1/file"));
       assertTrue(urlVal.isValid("http://225.com"));
-	   
+
    }
-   
-   
+
+
    public void testYourFirstPartition()
    {
 	 //You can use this function to implement your First Partition testing
@@ -53,7 +54,7 @@ public class UrlValidatorTest extends TestCase {
       assertFalse(urlVal.isValid("http:.com"));
 
    }
-   
+
    public void testYourSecondPartition(){
       //You can use this function to implement your Second Partition testing
       UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
@@ -68,11 +69,76 @@ public class UrlValidatorTest extends TestCase {
       assertFalse(urlVal.isValid("h3t://256:-50/..//c"));
 
    }
-   //You need to create more test cases for your Partitions if you need to 
-   
+   //You need to create more test cases for your Partitions if you need to
+
    public void testIsValid()
    {
 	   //You can use this function for programming based testing
+
+      UrlValidator URLVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+
+      // These are the total pairs within each section of the string
+      int schemeTotal = testUrlScheme.length;
+      int authTotal = testUrlAuthority.length;
+      int portTotal = testUrlPort.length;
+      int pathTotal = testPath.length;
+      int queryTotal = testUrlQuery.length;
+
+      // Create an array to house the total values
+      int totalsArr[] = new int[]{schemeTotal, authTotal, portTotal, pathTotal, queryTotal};
+
+      // Remember that testUrlParts holds all the pairs together
+
+      // We know that this URL is valid, so this is a redundancy test to ensure that the function is operating correctly to start with
+      assertTrue(URLVal.isValid("http://www.google.com"));
+
+      // Gonna run a while loop for a certain amount of time. 30 seconds
+      long startTime = System.currentTimeMillis();
+
+
+      int i, index1;
+      String testUrl, status;
+      Boolean isVal, expected;
+
+      Random rn = new Random();
+
+      // Test different URL's for 15 seconds
+      while((System.currentTimeMillis() - startTime) < 15000) {
+         // Clears the string every iteration of the while loop
+         testUrl = "";
+         status = "";
+
+         // Sets all URL's to true to start
+         isVal = true;
+
+         for (i=0; i<5; i++) {
+            index1 = rn.nextInt(totalsArr[i]);
+            ResultPair[] part = (ResultPair[]) testUrlParts[i];
+            testUrl += part[index1].item;
+            if (part[index1].valid == false) {
+               isVal = false;
+            }
+         }
+
+//         System.out.println("url: " + testUrl);
+
+         // Ensures that our test matches the URL Validators test
+         expected = URLVal.isValid(testUrl);
+         assertEquals(expected, isVal);
+
+         if(isVal) {
+            status += "valid\n";
+         } else {
+            status += "invalid\n";
+         }
+
+         System.out.println("URL \"" + testUrl + "\" is " + status);
+
+
+
+      }
+
+
 
    }
 
@@ -85,7 +151,8 @@ public class UrlValidatorTest extends TestCase {
     * all of which must be individually valid for the entire URL to be considered
     * valid.
     */
-   ResultPair[] testUrlScheme = {new ResultPair("http://", true),
+   ResultPair[] testUrlScheme = {
+           new ResultPair("http://", true),
            new ResultPair("ftp://", true),
            new ResultPair("h3t://", true),
            new ResultPair("3ht://", false),
@@ -93,9 +160,11 @@ public class UrlValidatorTest extends TestCase {
            new ResultPair("http:", false),
            new ResultPair("http/", false),
            new ResultPair("://", false),
-           new ResultPair("", true)};
+           new ResultPair("", true)
+   };
 
-   ResultPair[] testUrlAuthority = {new ResultPair("www.google.com", true),
+   ResultPair[] testUrlAuthority = {
+           new ResultPair("www.google.com", true),
            new ResultPair("go.com", true),
            new ResultPair("go.au", true),
            new ResultPair("0.0.0.0", true),
@@ -168,4 +237,3 @@ public class UrlValidatorTest extends TestCase {
 
 
 }
-
